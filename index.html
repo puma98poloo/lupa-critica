@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="es">
+<head><script>if(location.hostname !== "127.0.0.1" && location.hostname !== "localhost") window.ENTRELINEAS_API_BASE="https://wijloxhytxqswmlijpre.supabase.co/functions/v1/entre-lineas/api";</script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f4f4ee" />
+  <meta name="description" content="Una guía interactiva para aprender a reconocer sesgos cognitivos y falacias sin convertirlos en diagnósticos." />
+  <title>Entre líneas — Sesgos y falacias</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="extras.css?v=70" />
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="#inicio" aria-label="Entre líneas, inicio">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>entre<span class="brand-light">líneas</span></span>
+      </a>
+      <div class="top-meta"><span class="live-dot"></span> CUADERNO DE PENSAMIENTO CRÍTICO</div>
+      <button class="history-button" id="historyButton" type="button"><span aria-hidden="true">↺</span> Historial <b id="historyCount">0</b></button>
+    </header>
+
+    <main id="inicio">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow"><span>01 — 03</span> HERRAMIENTA PARA PENSAR MEJOR</p>
+          <h1>Lee lo que hay<br /> <em>entre líneas.</em></h1>
+          <p class="hero-lede">Una frase puede esconder una idea interesante —o un atajo mental. Apréndelos a reconocer con curiosidad, no con etiquetas.</p>
+          <div class="hero-stats">
+            <div><strong id="conceptTotal">66</strong><span>conceptos esenciales</span></div><div class="stat-rule"></div>
+            <div><strong>3</strong><span>formas de explorar</span></div><div class="hero-note">No es un detector<br />de verdades.</div>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <div class="paper-card"><div class="paper-top"><span>NOTA DE CAMPO</span><span>№ 018</span></div><div class="paper-lines"><i></i><i></i><i></i><i></i></div><div class="paper-highlight">¿Y si falta contexto?</div><div class="paper-foot"><span>OBSERVA · PREGUNTA · CONTRASTA</span><span>↗</span></div></div>
+          <div class="art-tag tag-top">curiosidad antes que certeza</div><div class="art-tag tag-bottom">una idea no es una persona</div>
+          <span class="art-star star-a">✳</span><span class="art-star star-b">✳</span>
+        </div>
+      </section>
+
+      <nav class="tabs" aria-label="Secciones principales">
+        <button class="tab active" data-tab="analyze" type="button"><span class="tab-index">01</span> Analizar un texto <span class="tab-arrow">↗</span></button>
+        <button class="tab" data-tab="explore" type="button"><span class="tab-index">02</span> Explorar el diccionario <span class="tab-arrow">↗</span></button>
+        <button class="tab" data-tab="learn" type="button"><span class="tab-index">03</span> Aprender y practicar <span class="tab-arrow">↗</span></button>
+      </nav>
+
+      <section class="panel active" id="analyzePanel" aria-labelledby="analyzeHeading">
+        <div class="section-heading"><div><p class="eyebrow">LECTURA ORIENTATIVA</p><h2 id="analyzeHeading">Examina el razonamiento</h2></div><p class="section-side">Pega una frase, un argumento<br />o un fragmento que quieras revisar.</p></div>
+        <div class="analysis-mode" id="analysisMode" data-mode="checking"><span class="mode-indicator" aria-hidden="true"></span><div><strong id="analysisModeTitle">Comprobando el modo de análisis…</strong><p id="analysisModeDescription">La respuesta depende de la configuración disponible en este servidor.</p></div></div>
+        <div class="sample-prompts" aria-label="Ejemplos rápidos para probar el analizador"><span>PRUÉBALO CON</span><button type="button" data-sample="Todo el mundo usa esta app, así que tiene que ser la mejor.">Popularidad</button><button type="button" data-sample="O hacemos lo que digo o todo saldrá mal.">Falso dilema</button><button type="button" data-sample="Ayer me puse esta pulsera y hoy aprobé, así que funciona.">Causa falsa</button><button type="button" data-sample="Conozco a uno que miente; todos los políticos son iguales.">Generalización</button></div>
+        <form id="analysisForm" class="analyzer">
+          <label class="sr-only" for="textInput">Texto para analizar</label>
+          <textarea id="textInput" maxlength="12000" placeholder="Escribe o pega aquí una afirmación, argumento o fragmento…"></textarea>
+          <div class="composer-footer"><div class="privacy-note"><span aria-hidden="true">◉</span> El historial se guarda solo en este navegador.</div><div class="composer-actions"><button class="clear-text" id="clearTextButton" type="button" disabled>Limpiar</button><span id="charCount">0 / 12 000</span><button class="primary-button" id="analyzeButton" type="submit">Analizar texto <span>↗</span></button></div></div>
+          <p class="enter-hint">Enter analiza · Shift + Enter crea una nueva línea</p>
+        </form>
+        <div id="analysisStatus" class="status" role="status" aria-live="polite"></div>
+        <div id="analysisResults" class="results" aria-live="polite"></div>
+        <div class="disclaimer"><span>i</span><p>Una frase aislada no demuestra por sí sola un sesgo o una falacia. El contexto importa; usa estas pistas para preguntar mejor, no para descalificar a quien habla.</p></div>
+      </section>
+
+      <section class="panel" id="explorePanel" aria-labelledby="exploreHeading">
+        <div class="section-heading"><div><p class="eyebrow">APRENDE A TU RITMO</p><h2 id="exploreHeading">El diccionario</h2></div><button class="random-button" id="randomButton" type="button"><span>✳</span> Sorpréndeme</button></div>
+        <div class="library-tools"><label class="searchbox"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="Busca una idea, un ejemplo…" /><kbd>/</kbd></label><div class="filter-group" aria-label="Filtrar conceptos"><button class="filter active" data-filter="todos" type="button">Todos <span id="allCount">66</span></button><button class="filter" data-filter="sesgo" type="button">Sesgos <span id="biasCount">32</span></button><button class="filter" data-filter="falacia" type="button">Falacias <span id="fallacyCount">34</span></button></div></div>
+        <div class="category-row" id="categoryRow"><span>CATEGORÍA</span><select id="categoryFilter" aria-label="Filtrar por categoría"><option value="todas">Todas las categorías</option></select><span class="result-count" id="resultCount"></span></div>
+        <div class="library-layout"><div class="concept-list" id="conceptList"></div><article class="concept-detail" id="conceptDetail"><div class="detail-placeholder"><span class="placeholder-symbol">↖</span><p>Elige una idea de la lista para empezar a explorarla.</p><small>18 conceptos · basados en investigación y teoría de la argumentación</small></div></article></div>
+      </section>
+
+      <section class="panel" id="learnPanel" aria-labelledby="learnHeading">
+        <div class="section-heading"><div><p class="eyebrow">APRENDE HACIENDO</p><h2 id="learnHeading">Practica reconocer patrones</h2></div><p class="section-side">Ejercicios educativos: el contexto importa<br />y algunas respuestas pueden ser discutibles.</p></div>
+        <div class="practice-switch" role="tablist" aria-label="Tipo de práctica">
+          <button class="practice-mode active" id="quizModeButton" type="button" role="tab" aria-selected="true">Cuestionario <span>· respuesta y puntuación</span></button>
+          <button class="practice-mode" id="caseModeButton" type="button" role="tab" aria-selected="false">Casos prácticos <span>· análisis paso a paso</span></button>
+        </div>
+        <div class="practice-controls" id="quizControls">
+          <label>Practicar<select id="practiceKind"><option value="todos">Sesgos y falacias</option><option value="sesgo">Solo sesgos</option><option value="falacia">Solo falacias</option></select></label>
+          <label>Preguntas<select id="practiceLength"><option value="5">5 preguntas</option><option value="10" selected>10 preguntas</option></select></label>
+          <button class="primary-button" id="startQuizButton" type="button">Empezar cuestionario <span>↗</span></button>
+        </div>
+        <div class="practice-progress" id="quizProgress" hidden></div>
+        <div class="practice-stage" id="quizStage" aria-live="polite"><div class="practice-welcome"><span class="placeholder-symbol">✳</span><h3>Entrena el ojo crítico</h3><p>Lee cada situación y elige la explicación que mejor encaja. Al responder, verás por qué podría aplicar, qué contexto conviene revisar y enlaces para profundizar.</p><small>Los ejercicios son ejemplos didácticos; no son citas ni casos históricos.</small></div></div>
+        <div class="practice-controls case-controls" id="caseControls" hidden>
+          <label>Caso<select id="casePicker" aria-label="Elegir un caso práctico"></select></label>
+          <label>Tu interpretación<select id="caseAnswer" aria-label="Selecciona el sesgo o falacia que observas"><option value="">Selecciona una opción…</option><option value="ninguno">No hay evidencia suficiente</option></select></label>
+          <button class="primary-button" id="checkCaseButton" type="button">Comparar análisis <span>↗</span></button>
+        </div>
+        <div class="practice-stage" id="caseStage" aria-live="polite" hidden></div>
+        <div class="practice-disclaimer"><strong>Una etiqueta no sustituye al argumento.</strong> Pregunta qué afirma el texto, qué razones ofrece y qué información podría cambiar la interpretación. Las situaciones aquí son ejercicios creados para practicar, no pruebas de que una persona tenga un sesgo.</div>
+      </section>
+    </main>
+    <section class="method-note" id="fuentesNota"><p class="eyebrow">SOBRE LAS FUENTES Y EL MÉTODO</p><p>Las fichas combinan estudios empíricos sobre juicio y sesgos con literatura de lógica informal. Son campos relacionados pero distintos: las referencias respaldan la definición y el mecanismo descrito, no prueban que un patrón aparezca en cada frase analizada. La clasificación automática es experimental y puede equivocarse.</p><div><a href="https://arxiv.org/abs/2202.13758" target="_blank" rel="noopener noreferrer">Datos y reto de detección de falacias ↗</a><a href="https://doi.org/10.1016/j.cogsys.2024.101304" target="_blank" rel="noopener noreferrer">Detección automática de sesgos en texto ↗</a><a href="https://doi.org/10.1371/journal.pone.0283238" target="_blank" rel="noopener noreferrer">Intervención educativa sobre falacias ↗</a></div></section>
+    <footer><a class="brand footer-brand" href="#inicio"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>entre<span class="brand-light">líneas</span></span></a><span>Hecho para pensar con más cuidado.</span><a href="#fuentesNota">Fuentes y método ↑</a></footer>
+  </div>
+  <dialog id="historyDialog" class="history-dialog"><div class="dialog-head"><div><p class="eyebrow">EN ESTE DISPOSITIVO</p><h2>Tu historial</h2></div><button class="icon-button" id="closeHistory" aria-label="Cerrar historial">×</button></div><div id="historyList" class="history-list"></div><button id="clearHistory" class="clear-history" type="button">Borrar todo el historial</button></dialog>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="catalog.js?v=69"></script>
+  <script src="catalog-extra.js?v=69"></script>
+  <script src="app.js?v=70"></script>
+</body>
+</html>
