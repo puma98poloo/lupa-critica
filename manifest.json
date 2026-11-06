@@ -1,0 +1,31 @@
+{
+  "id": "./",
+  "name": "Lupa Crítica — Sesgos y falacias",
+  "short_name": "Lupa Crítica",
+  "description": "Explora sesgos y falacias, analiza argumentos y practica el pensamiento crítico.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f4ee",
+  "theme_color": "#f4f4ee",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-1024.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
